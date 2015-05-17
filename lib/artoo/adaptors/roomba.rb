@@ -11,7 +11,7 @@ module Artoo
       # @return [Boolean]
       def connect
         if port.is_serial?
-          @sp = connect_to_serial
+          @sp = connect_to_serial(speed = 115200)
           @sp.dtr = 0
           @sp.rts = 0
         else
