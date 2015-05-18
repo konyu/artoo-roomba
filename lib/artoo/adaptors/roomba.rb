@@ -9,9 +9,11 @@ module Artoo
 
       # Creates serial or tcp connection
       # @return [Boolean]
-      def connect
+      def connect(baud: 115200)
+        p baud
+        p "========================="
         if port.is_serial?
-          @sp = connect_to_serial(speed = 115200)
+          @sp = connect_to_serial(speed = baud)
           @sp.dtr = 0
           @sp.rts = 0
         else
